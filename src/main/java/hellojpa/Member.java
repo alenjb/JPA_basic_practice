@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
-@Entity // JPA에서 관리한다는 의미
+//@Entity // JPA에서 관리한다는 의미
 
 public class Member {
     @Id
