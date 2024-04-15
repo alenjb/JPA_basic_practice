@@ -1,21 +1,19 @@
 package hellojpa;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Team {
     @Id @GeneratedValue
-    @Column(name="MEMBER_ID")
+    @Column(name="TEAM_ID")
     private Long id;
+    private String name;
 
-    @Column(name = "USER_NAME")
-    private String username;
-
-    @Column(name = "TEAM_ID")
-    private Long teamId;
+    @OneToMany(mappedBy = "team")
+    private List<Member> members = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -25,19 +23,19 @@ public class Team {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getTeamId() {
-        return teamId;
+    public List<Member> getMembers() {
+        return members;
     }
 
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
+    public void setMembers(List<Member> members) {
+        this.members = members;
     }
 }
