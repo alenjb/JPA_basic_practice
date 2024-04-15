@@ -8,16 +8,23 @@ public class JpaMain {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
         try {
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(5)  //페이징에서 5번째 페이지부토 8번째 페이지까지 가져오는 것+
-                    .setMaxResults(8)
-                    .getResultList();
+            Team team = new Team();
+            team.setUsername("TeamA");
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeam(team);
+            em.persist(member);
+
+            Member findMember = em.find(Member.class, member.getId());
+            Team finTeam = findMember.getTeam();
+            System.out.println("finTeam.getTeamId() = " + finTeam.getTeamId());
             tx.commit();
         }catch (Exception e){
             tx.rollback();

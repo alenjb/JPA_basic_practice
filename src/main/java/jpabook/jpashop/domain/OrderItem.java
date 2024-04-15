@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-@Entity
+//@Entity
 public class OrderItem {
     @Id @GeneratedValue
     @Column(name="OREDER_ITEM_ID")
