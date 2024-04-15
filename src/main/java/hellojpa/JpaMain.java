@@ -2,6 +2,8 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -12,8 +14,10 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = em.find(Member.class,2L);
-            member.setName("HelloJPA");
+            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+                    .setFirstResult(5)  //페이징에서 5번째 페이지부토 8번째 페이지까지 가져오는 것+
+                    .setMaxResults(8)
+                    .getResultList();
             tx.commit();
         }catch (Exception e){
             tx.rollback();
