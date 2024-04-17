@@ -2,6 +2,7 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+
 @Entity // JPA에서 관리한다는 의미
 
 public class Member {
@@ -18,6 +19,10 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name="LOCKER_ID")
+    private Locker locker;
 
     public Long getId() {
         return id;
