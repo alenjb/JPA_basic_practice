@@ -1,13 +1,12 @@
 package jpabook.jpashop.domain;
 
-import hellojpa.Member;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name="ORDERS")
 public class Order {
     @Id @GeneratedValue
@@ -16,7 +15,11 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
-    private Member member;
+    private jpabook.jpashop.domain.Member member;
+
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
@@ -50,7 +53,7 @@ public class Order {
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
-    public Member getMember() {
+    public jpabook.jpashop.domain.Member getMember() {
         return member;
     }
 

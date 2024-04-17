@@ -2,7 +2,7 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 
-//@Entity
+@Entity
 public class OrderItem {
     @Id @GeneratedValue
     @Column(name="OREDER_ITEM_ID")
