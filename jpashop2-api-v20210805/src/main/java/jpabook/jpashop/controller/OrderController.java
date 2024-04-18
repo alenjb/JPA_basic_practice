@@ -22,7 +22,7 @@ public class OrderController {
     private final MemberService memberService;
     private final ItemService itemService;
 
-    @GetMapping("/order")
+/*    @GetMapping("/order")
     public String createForm(Model model) {
 
         List<Member> members = memberService.findMembers();
@@ -55,5 +55,5 @@ public class OrderController {
     public String cancelOrder(@PathVariable("orderId") Long orderId) {
         orderService.cancelOrder(orderId);
         return "redirect:/orders";
-    }
+    }*/
 }

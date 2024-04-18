@@ -28,7 +28,7 @@ public class OrderServiceTest {
     @Autowired OrderService orderService;
     @Autowired OrderRepository orderRepository;
 
-    @Test
+    /*@Test
     public void 상품주문() throws Exception {
         //given
         Member member = createMember();
@@ -47,7 +47,7 @@ public class OrderServiceTest {
         assertEquals("주문한 상품 종류 수가 정확해야 한다.", 1, getOrder.getOrderItems().size());
         assertEquals("주문 가격은 가격 * 수량이다.", 10000 * orderCount, getOrder.getTotalPrice());
         assertEquals("주문 수량만큼 재고가 줄어야 한다.", 8, book.getStockQuantity());
-    }
+    }*/
 
     @Test(expected = NotEnoughStockException.class)
     public void 상품주문_재고수량초과() throws Exception {

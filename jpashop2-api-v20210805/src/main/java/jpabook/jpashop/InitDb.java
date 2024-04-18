@@ -1,3 +1,4 @@
+/*
 package jpabook.jpashop;
 
 import jpabook.jpashop.domain.*;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 
+*/
 /**
  * 종 주문 2개
  * * userA
@@ -17,7 +19,8 @@ import javax.persistence.EntityManager;
  * * userB
  * 	 * SPRING1 BOOK
  * 	 * SPRING2 BOOK
- */
+ *//*
+
 @Component
 @RequiredArgsConstructor
 public class InitDb {
@@ -97,3 +100,4 @@ public class InitDb {
     }
 }
 
+*/
